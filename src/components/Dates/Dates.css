@@ -1,0 +1,35 @@
+.Dates {
+  border-radius: 8px;
+  background: #F2F2F7;
+  padding: 16px;
+}
+
+.Dates-Title {
+  color: #2B2B2B;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+
+
+#Dates-list li {
+  background: #fff;
+  border-radius: 4px;
+  color: #3A85F7;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  line-height: 24px;
+}
+
+
+#Dates-list li span {
+  float: right;
+  cursor: pointer;
+}

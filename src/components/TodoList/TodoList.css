@@ -1,0 +1,25 @@
+.toDolistWrapper {
+  width: 662px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+  gap: 16px;
+  background-color: #FFFFFF;
+}
+
+.toDoListHeader {
+  color: #2B2B2B;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.toDolistWrapper>h1 {
+  color: #2B2B2B;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 40px;
+}
