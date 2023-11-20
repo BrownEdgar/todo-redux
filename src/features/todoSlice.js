@@ -23,7 +23,7 @@ const todoSlice = createSlice({
 //selectors
 
 
-export const allTodosSelector = state => state.todos.allDates.map(id => state.todos.byDates[id])
+export const allTodosSelector = state => state.todos.allDates.map(id => ({ id, length: state.todos.byDates[id].length }))
 export const { addTodo, addTodoInDate } = todoSlice.actions
 
 export default todoSlice.reducer

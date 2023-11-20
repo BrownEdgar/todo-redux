@@ -1,13 +1,31 @@
+import { useState } from 'react';
 import Dates from '../Dates/Dates'
 import MainForm from '../MainForm/MainForm'
 import './TodoList.css'
+import SelectedDate from '../SelectedDate/SelectedDate';
 
 export default function TodoList() {
+  const [mainListShow, setMainListShow] = useState(true)
+
+
+  const toggleList = () => {
+    setMainListShow(!mainListShow)
+  }
   return (
     <div className="toDolistWrapper">
-      <h1>To do list</h1>
-      <MainForm />
-      <Dates />
+
+      {
+        mainListShow
+          ? (
+            <>
+              <h1>To do list</h1>
+              <MainForm />
+              <Dates toggleList={toggleList} />
+            </>
+          ) : (
+            <SelectedDate dateId='2020-01-02 (3)' toggleList={toggleList} />
+          )
+      }
     </div>
   )
 }

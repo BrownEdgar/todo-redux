@@ -1,0 +1,26 @@
+  .SelectedDate-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .SelectedDate-backBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px;
+    background: white;
+    border-radius: 8px;
+    color: #3A85F7;
+    border: 1px solid #F2F2F7;
+    border-radius: 4px;
+    gap: 16px;
+  }
+
+  .SelectedDate-list {
+    margin-top: 12px;
+    border-radius: 8px;
+    background: #F2F2F7;
+    padding: 16px;
+  }
