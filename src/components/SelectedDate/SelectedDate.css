@@ -24,3 +24,28 @@
     background: #F2F2F7;
     padding: 16px;
   }
+
+  .SelectedDate-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .SelectedDate-list li button {
+    margin: 0 8px;
+    background: transparent;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    border: 0;
+    cursor: pointer;
+  }
+
+  button.btn-edit {
+    color: #3A85F7;
+  }
+
+  button.btn-delete {
+    color: #EB445A;
+  }

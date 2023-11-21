@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialStateValue = {
   byDates: {},
-  allDates: []
+  allDates: [],
+  selectedDate: {}
 
 }
 const todoSlice = createSlice({
@@ -15,7 +16,9 @@ const todoSlice = createSlice({
     },
     addTodoInDate(state, { payload }) {
       state.byDates[payload.date].push(payload)
-
+    },
+    updateSelectedDate(state, { payload }) {
+      state.selectedDate = { date: payload, data: state.byDates[payload] }
     }
   }
 })
@@ -24,6 +27,7 @@ const todoSlice = createSlice({
 
 
 export const allTodosSelector = state => state.todos.allDates.map(id => ({ id, length: state.todos.byDates[id].length }))
-export const { addTodo, addTodoInDate } = todoSlice.actions
 
+
+export const { addTodo, addTodoInDate, updateSelectedDate } = todoSlice.actions
 export default todoSlice.reducer

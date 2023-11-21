@@ -5,15 +5,14 @@ import './TodoList.css'
 import SelectedDate from '../SelectedDate/SelectedDate';
 
 export default function TodoList() {
-  const [mainListShow, setMainListShow] = useState(true)
-
+  const [mainListShow, setMainListShow] = useState(true);
 
   const toggleList = () => {
     setMainListShow(!mainListShow)
   }
+
   return (
     <div className="toDolistWrapper">
-
       {
         mainListShow
           ? (
@@ -23,7 +22,8 @@ export default function TodoList() {
               <Dates toggleList={toggleList} />
             </>
           ) : (
-            <SelectedDate dateId='2020-01-02 (3)' toggleList={toggleList} />
+            <SelectedDate
+              toggleList={toggleList} />
           )
       }
     </div>

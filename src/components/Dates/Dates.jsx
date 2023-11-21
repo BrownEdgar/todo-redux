@@ -1,20 +1,23 @@
 
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import PropTypes from 'prop-types';
-import { allTodosSelector } from '../../features/todoSlice'
+import { allTodosSelector, updateSelectedDate } from '../../features/todoSlice'
 import RightArrow from '../../assets/RightArrow'
 import './Dates.css'
 
 export default function Dates({ toggleList }) {
-  const todos = useSelector(allTodosSelector)
-  console.log(todos);
+  const todos = useSelector(allTodosSelector);
+  const dispatch = useDispatch()
   return (
     <div className='Dates'>
       <h2 className='Dates-Title'>Dates</h2>
       <ul id='Dates-list' className='list'>
         {todos.map(elem => {
           return (
-            <li key={elem.id} onClick={toggleList}>
+            <li key={elem.id} onClick={() => {
+              toggleList()
+              dispatch(updateSelectedDate(elem.id))
+            }}>
               {elem.id}
               {' '}
               ({elem.length})
@@ -30,5 +33,5 @@ export default function Dates({ toggleList }) {
 }
 
 Dates.propTypes = {
-  toggleList: PropTypes.func.isRequired
+  toggleList: PropTypes.func.isRequired,
 }

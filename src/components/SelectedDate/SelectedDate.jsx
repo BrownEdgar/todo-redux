@@ -1,8 +1,11 @@
 import LeftArrow from '../../assets/LeftArrow'
 import PropTypes from 'prop-types';
 import './SelectedDate.css'
+import { useSelector } from 'react-redux';
 
-export default function SelectedDate({ dateId, toggleList }) {
+export default function SelectedDate({ toggleList }) {
+  const { date, data } = useSelector(state => state.todos.selectedDate);
+
   return (
     <div className='SelectedDate'>
       <div className='SelectedDate-header'>
@@ -11,19 +14,28 @@ export default function SelectedDate({ dateId, toggleList }) {
           Go back
         </button>
         <h2>
-          {dateId}
+          {date}
+          {" "}
+          ({data?.length})
         </h2>
       </div>
       <ul className='SelectedDate-list list'>
-        <li>dateId</li>
-        <li>dateId</li>
-        <li>dateId</li>
+        {data.map(todo => {
+          return <li key={todo.id}>
+            <span>
+              {todo.message}
+            </span>
+            <div className="buttons">
+              <button className='btn-edit'>Edit</button>
+              <button className='btn-delete'>Delete</button>
+            </div>
+          </li>
+        })}
       </ul>
     </div>
   )
 }
 
 SelectedDate.propTypes = {
-  dateId: PropTypes.string.isRequired,
   toggleList: PropTypes.func.isRequired
 }

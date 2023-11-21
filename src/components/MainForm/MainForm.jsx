@@ -2,6 +2,7 @@ import { useDispatch } from 'react-redux'
 import './MainForm.css'
 import { useState } from 'react';
 import { addTodo } from '../../features/todoSlice';
+import DatePickerIcon from '../../assets/DatePickerIcon';
 
 export default function MainForm() {
   const dispatch = useDispatch();
@@ -33,15 +34,18 @@ export default function MainForm() {
           id='message'
           required
         />
-        <input
-          type="date"
-          value={setselectedDate}
-          min="2020-01-02"
-          max="2030-01-02"
-          id='date'
-          onChange={handleDataChange}
-          required
-        />
+        <label htmlFor="date">
+          <input
+            type="date"
+            value={setselectedDate}
+            min="2020-01-02"
+            max="2030-01-02"
+            id='date'
+            onChange={handleDataChange}
+            required
+          />
+          <DatePickerIcon />
+        </label>
         <input type="submit" value="Add" />
       </form>
     </div>
