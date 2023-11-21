@@ -49,3 +49,33 @@
   button.btn-delete {
     color: #EB445A;
   }
+
+  button.btn-Cancel {
+    color: #8E8E93;
+  }
+
+  .checkbox {
+    margin-right: 8px;
+  }
+
+  .checkbox:checked+span {
+    color: #8E8E93;
+    text-decoration: line-through;
+  }
+
+  .checkboxLabel {
+    display: flex;
+    align-items: center;
+  }
+
+  input[type="checkbox"]:checked {
+    accent-color: #68CD67;
+    color: #fff !important;
+  }
+
+  .editableInput {
+    border: 0;
+    padding: 4px;
+    color: #2B2B2B;
+    font-size: 16px;
+  }

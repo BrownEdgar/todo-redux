@@ -19,15 +19,35 @@ const todoSlice = createSlice({
     },
     updateSelectedDate(state, { payload }) {
       state.selectedDate = { date: payload, data: state.byDates[payload] }
+    },
+    updateTodo(state, { payload }) {
+      console.log({ payload });
+    },
+    deleteTodo(state, { payload }) {
+      const filtered_data = state.byDates[payload.date].filter(todo => todo.id !== payload.id)
+      return {
+        ...state,
+        byDates: { ...state.byDates, [payload.date]: filtered_data },
+        selectedDate: { ...state.selectedDate, data: filtered_data }
+      }
+    },
+    clearemptyListById(state, { payload }) {
+
+      return {
+        ...state,
+        allDates: state.allDates.filter(dates => dates !== payload.date),
+        selectedDate: { data: [], date: '' }
+      }
     }
+
   }
 })
 
 //selectors
 
 
-export const allTodosSelector = state => state.todos.allDates.map(id => ({ id, length: state.todos.byDates[id].length }))
+export const allTodosSelector = state => state.todos.allDates.map(id => ({ id, length: state.todos.byDates[id]?.length }))
 
 
-export const { addTodo, addTodoInDate, updateSelectedDate } = todoSlice.actions
+export const { addTodo, addTodoInDate, updateSelectedDate, updateTodo, deleteTodo, clearemptyListById } = todoSlice.actions
 export default todoSlice.reducer
