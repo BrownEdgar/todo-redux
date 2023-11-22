@@ -36,9 +36,9 @@ export default function SelectedDate({ toggleList }) {
   const onCancel = () => {
     setEditingId(null)
   }
-  const onSave = (date) => {
+  const onSave = (date, todoId) => {
     setEditingId(null)
-    dispatch(updateTodo({ message: editText, date }))
+    dispatch(updateTodo({ message: editText, date, id: todoId }))
   }
 
   const handleChange = (e) => {
@@ -88,7 +88,7 @@ export default function SelectedDate({ toggleList }) {
               <div className="buttons">
                 <button
                   className='btn-edit'
-                  onClick={() => { (editingId === todo.id) ? onSave(todo.date) : handleEditingId(todo.id, todo.message) }}
+                  onClick={() => { (editingId === todo.id) ? onSave(todo.date, todo.id) : handleEditingId(todo.id, todo.message) }}
                 >
                   {(editingId === todo.id) ? "Save" : "Edit"}
                 </button>
