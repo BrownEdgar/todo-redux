@@ -4,8 +4,8 @@ const initialStateValue = {
   byDates: {},
   allDates: [],
   selectedDate: {}
-
 }
+
 const todoSlice = createSlice({
   name: "todo",
   initialState: initialStateValue,
@@ -48,13 +48,10 @@ const todoSlice = createSlice({
         selectedDate: { data: [], date: '' }
       }
     }
-
   }
 })
 
 //selectors
-
-
 export const allTodosSelector = state => state.todos.allDates.map(id => ({ id, length: state.todos.byDates[id]?.length }))
 
 
